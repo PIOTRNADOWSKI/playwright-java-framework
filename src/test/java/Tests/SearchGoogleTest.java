@@ -12,7 +12,7 @@ public class SearchGoogleTest extends BaseTest {
     @Test
     public void testGoogle() {
 
-        page.navigate("https://www.google.com");
+        page.navigate("https://www.google.com/?hl=pl");
 
         GooglePage googlePage = new GooglePage(page);
         page.getByRole(
@@ -22,6 +22,7 @@ public class SearchGoogleTest extends BaseTest {
                 .click();
         page.waitForLoadState();
 
+        googlePage.acceptCookies();
         googlePage.search("Playwright Java");
 
         assertWithMessage("Nieprawidłowy tytuł strony")
