@@ -4,7 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-
 public class GooglePage extends BasePage {
 
     private final Locator searchBox;
@@ -22,20 +21,23 @@ public class GooglePage extends BasePage {
     }
 
     public void acceptCookies() {
-        try {
-            page.getByRole(
-                            AriaRole.BUTTON,
-                            new Page.GetByRoleOptions()
-                                    .setName("Zaakceptuj wszystko"))
-                    .click();
-        } catch (Exception e) {
-            page.getByRole(
-                            AriaRole.BUTTON,
-                            new Page.GetByRoleOptions()
-                                    .setName("Accept all"))
-                    .click();
+        Locator acceptPl = page.getByRole(
+                AriaRole.BUTTON,
+                new Page.GetByRoleOptions()
+                        .setName("Zaakceptuj wszystko"));
+
+        Locator acceptEn = page.getByRole(
+                AriaRole.BUTTON,
+                new Page.GetByRoleOptions()
+                        .setName("Accept all"));
+
+        if (acceptPl.count() > 0) {
+            acceptPl.click();
+        } else if (acceptEn.count() > 0) {
+            acceptEn.click();
         }
     }
+
 
     public String getTitle() {
 
