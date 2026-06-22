@@ -1,7 +1,5 @@
 package Tests;
 
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.GooglePage;
@@ -15,12 +13,6 @@ public class SearchGoogleTest extends BaseTest {
         page.navigate("https://www.google.com/?hl=pl");
 
         GooglePage googlePage = new GooglePage(page);
-        page.getByRole(
-                        AriaRole.BUTTON,
-                        new Page.GetByRoleOptions()
-                                .setName("Zaakceptuj wszystko"))
-                .click();
-        page.waitForLoadState();
 
         googlePage.acceptCookies();
         googlePage.search("Playwright Java");
