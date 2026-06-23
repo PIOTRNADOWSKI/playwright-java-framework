@@ -1,6 +1,8 @@
 package Factory;
 
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Playwright;
 
 public class PlaywrightFactory {
 

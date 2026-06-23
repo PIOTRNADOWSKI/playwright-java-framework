@@ -1,13 +1,18 @@
 package Tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.GooglePage;
 import static com.google.common.truth.Truth.assertWithMessage;
 
+@Epic("Google")
+@Feature("Search")
 public class SearchGoogleTest extends BaseTest {
 
     @Test
+    @Description("Verify Google search")
+    @Severity(SeverityLevel.CRITICAL)
     public void testGoogle() {
 
         page.navigate("https://www.google.com/?hl=pl");
