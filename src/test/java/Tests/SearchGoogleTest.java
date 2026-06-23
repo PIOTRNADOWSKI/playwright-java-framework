@@ -4,10 +4,13 @@ import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.GooglePage;
+import io.qameta.allure.testng.AllureTestNg;
+import org.testng.annotations.Listeners;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 @Epic("Google")
 @Feature("Search")
+@Listeners({AllureTestNg.class})
 public class SearchGoogleTest extends BaseTest {
 
     @Test
